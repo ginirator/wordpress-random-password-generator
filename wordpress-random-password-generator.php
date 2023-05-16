@@ -12,21 +12,20 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+	exit; // Exit if accessed directly.
 }
 
+// Define constants.
 define( 'RANDOM_PASSWORD_GENERATOR_DIR', plugin_dir_path( __FILE__ ) );
 
+// Include the main plugin class.
 require_once RANDOM_PASSWORD_GENERATOR_DIR . 'includes/class-random-password-generator.php';
 
+// Run the plugin.
 function wprpg_random_password_generator_run() {
-    $password_generator = new Random_Password_Generator();
-    $password_generator->run();
+	$password_generator = new Random_Password_Generator();
+	$password_generator->run();
 }
 
-//function wprpg_password_generator_shortcode() {
-//    ob_start();
-    wprpg_random_password_generator_run();
-//    return ob_get_clean();
-//}
-//add_shortcode('random_password_generator', 'wprpg_password_generator_shortcode');
+// Launch the plugin.
+wprpg_random_password_generator_run();
