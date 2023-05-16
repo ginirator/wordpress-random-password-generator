@@ -1,0 +1,55 @@
+#password-generator-form {
+    display: flex;
+    flex-direction: column;
+    .form-group {
+        margin-bottom: 2rem;
+    }
+    .character-settings {
+        display: flex;
+        align-items: center;
+    }
+    .character-option {
+        padding: 0 5px;
+    }
+    #generate-btn {
+        margin-bottom: 20px;
+    }
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+
+    .password-text {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &.btn-primary {
+        background-color: #0170b9;
+        color: #fff;
+        &:hover {
+            background-color: #004d80;
+        }
+    }
+
+    &.btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+        &:hover {
+            background-color: #5a6268;
+        }
+    }
+}

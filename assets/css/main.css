@@ -1,0 +1,64 @@
+form#password-generator-form {
+	display: flex;
+	flex-direction: column;
+}
+
+#generatedPasswordContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 1rem;
+	border: 1px solid #ccc;
+	padding: 0.5rem 1rem;
+}
+
+#generatedPassword {
+	margin: 0;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+#copy-btn {
+	background-color: #0170b9;
+	box-shadow: 0 8px 32px -8px rgba(0,112,246,0.4), 0 16px 32px -16px rgba(7,29,43,0.16);
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+#copy-btn:hover {
+	background-color: #004d80;
+	box-shadow: 0 8px 32px -8px rgba(0,112,246,0.72), 0 16px 32px -16px rgba(7,29,43,0.24);
+	outline: none;
+}
+
+#passwordLength {
+	margin-bottom: 2rem;
+}
+
+.complexity-settings {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	box-sizing: content-box;
+    /*color: #000;*/
+	margin-bottom: 20px;
+}
+
+.input-item {
+	padding: 0 5px;
+}
+
+#generate-btn {
+	margin-bottom: 20px;
+}
+
+.custom-control-input {
+	left: 0;
+	z-index: -1;
+	width: 1.25rem;
+	height: 1.25rem;
+}
