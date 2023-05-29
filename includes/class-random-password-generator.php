@@ -21,7 +21,7 @@ class Random_Password_Generator {
 	 * @return void
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( 'random-password-generator', plugins_url( 'assets/css/main.css', dirname( __FILE__ ) ) );
+		wp_enqueue_style('random-password-generator', plugins_url( '/assets/css/main.css', dirname( __FILE__ ) ), [], '1.0.1');
 	}
 
 	/**
@@ -32,7 +32,7 @@ class Random_Password_Generator {
 	 * @return void
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( 'random-password-generator', plugins_url( 'assets/js/password-generator.js', dirname( __FILE__ ) ), array( 'jquery' ), '1.0', true );
+		wp_enqueue_script( 'random-password-generator', plugins_url( '/assets/js/password-generator.js', dirname( __FILE__ ) ), array( 'jquery' ), '1.0.1', true );
 	}
 
 	/**

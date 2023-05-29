@@ -3,7 +3,7 @@
 
 	<div class="form-group">
 		<!-- Label for the desired password length -->
-		<label for="password-length">Password Length:</label>
+		<label for="password-length" class="strong-label">Password Length:</label>
 
 		<!-- Input field for the desired password length -->
 		<input type="number" id="password-length" name="password-length" min="3" max="50" value="15">
@@ -12,7 +12,7 @@
 	<!-- Checkboxes for the desired characters to include in the password -->
 	<div class="form-group character-settings">
 
-		<label class="character-label">Characters used: </label>
+		<label class="character-label strong-label">Characters used: </label>
 
 		<div class="character-option">
 			<input type="checkbox" id="uppercase" name="uppercase" checked>
@@ -37,7 +37,7 @@
 	</div>
 
 	<!-- Button to generate password -->
-	<button type="button" id="generate-btn" class="btn btn-primary">Generate Password</button>
+	<button type="button" id="generate-password-btn" class="btn btn-primary">Generate Password</button>
 
 </div>
 
@@ -48,6 +48,9 @@
 	<p id="generated-password" class="password-text"></p>
 
 	<!-- Button to copy the generated password -->
-	<button id="copy-btn" class="btn btn-secondary">Copy</button>
+	<button id="password-copy-btn">Copy</button>
 
+	<div class="popup-overlay">
+        <div class="popup-message">Copy successful</div>
+    </div>
 </div>

@@ -1,7 +1,7 @@
 (function($) {
 	$(document).ready(function() {
 		// Script for generating password
-		function generatePassword() {
+		function wpGeneratePassword() {
 			const passwordLength = $("#password-length").val();
 			const includeLowercase = $("#lowercase").is(':checked');
 			const includeUppercase = $("#uppercase").is(':checked');
@@ -43,22 +43,48 @@
 		}
 
 		// Function to copy the generated password to clipboard
-		function copyToClipboard() {
-			const passwordText = $("#generated-password").text(); // get the password text
-			const $tempInput = $("<textarea>"); // create temporary input
-			$("body").append($tempInput); // add to DOM
-			$tempInput.val(passwordText).select(); // select the text
-			document.execCommand("copy"); // copy to clipboard
-			$tempInput.remove(); // remove from DOM
+		function wpCopyToClipboard() {
+			// Get the button, popup overlay and popup message elements
+			var button = $(this);
+			var popupOverlay = button.parent().find('.popup-overlay');
+			var popupMessage = popupOverlay.find('.popup-message');
+
+			// Create a new textarea element and give it id='temp_element'
+			var textarea = $('<textarea id="temp_element"></textarea>');
+
+			// Optional step to make less noise on the page, if any!
+			textarea.css({height: 0});
+
+			// Now append it to your page somewhere, I chose <body>
+			$('body').append(textarea);
+
+			// Give our textarea a value of whatever inside the <code> element
+			textarea.val(button.parent().find('#generated-password').text());
+
+			// Now copy whatever inside the textarea to clipboard
+			textarea.select();
+			document.execCommand('copy');
+			//navigator.clipboard.writeText(textarea.val());
+
+			// Remove the textarea
+			textarea.remove();
+
+			// Display the popup overlay
+			popupOverlay.fadeIn(300, function() {
+				setTimeout(function() {
+					popupOverlay.fadeOut(300);
+					popupOverlay.css('display', 'flex');
+				}, 900);
+			});
 		}
 
 		// Generate password on page load
-		$("#generate-btn").on('click', function(e) {
+		$("#generate-password-btn").on('click', function(e) {
 			e.preventDefault(); // Prevent the default behavior of the button
-			generatePassword(); // Generate password
+			wpGeneratePassword(); // Generate password
 		});
 
 		// Copy password to clipboard
-		$("#copy-btn").on('click', copyToClipboard); //	Add event listener to the copy password button
+		$("#password-copy-btn").on('click', wpCopyToClipboard); //	Add event listener to the copy password button
 	});
 })(jQuery);
