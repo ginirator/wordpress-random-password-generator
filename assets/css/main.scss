@@ -1,55 +1,94 @@
-#password-generator-form {
-	display: flex;
-	flex-direction: column;
-	.form-group {
-		margin-bottom: 2rem;
-	}
-	.character-settings {
-		display: flex;
-		align-items: center;
-	}
-	.character-option {
-		padding: 0 5px;
-	}
-	#generate-btn {
-		margin-bottom: 20px;
+$btnCopyColor: #28a745;
+$btnCopyHoverColor: #218838;
+$btnGenerateColor: #007BFF;
+$btnGenerateHoverColor: #0056b3;
+$formColor: #f5f5f5;
+
+@mixin form-container {
+	background-color: $formColor;
+	border-radius: 8px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+	margin: 20px auto;
+	max-width: 500px;
+	padding: 20px;
+}
+
+@mixin button-style($btnColor, $btnHoverColor) {
+	background-color: $btnColor;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	padding: 10px 20px;
+	transition: background-color 0.3s;
+
+	&:hover {
+		background-color: $btnHoverColor;
 	}
 }
 
-.password-container {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-top: 1rem;
-	border: 1px solid #ccc;
-	padding: 0.5rem 1rem;
+#password-generator-form {
+	@include form-container;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+	.form-group {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 20px;
+
+		&.character-settings {
+			flex-direction: column;
+		}
+
+		label,
+		.character-option label {
+			font-weight: 500;
+		}
+
+		.strong-label {
+			font-weight: 700;
+		}
+	}
+
+	#generate-password-btn {
+		@include button-style($btnGenerateColor, $btnGenerateHoverColor);
+	}
+}
+
+#generated-password-container {
+	@include form-container;
 
 	.password-text {
-		margin: 0;
-		font-size: 1.2rem;
-		font-weight: bold;
+		line-height: 1.5;
+		margin-bottom: 20px;
+	}
+
+	#password-copy-btn {
+		@include button-style($btnCopyColor, $btnCopyHoverColor);
 	}
 }
 
-.btn {
-	padding: 10px 20px;
-	border: none;
-	cursor: pointer;
-	transition: all 0.3s ease-in-out;
+.popup-overlay {
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.6);
+	display: none;
+	height: 100%;
+	justify-content: center;
+	left: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
 
-	&.btn-primary {
-		background-color: #0170b9;
-		color: #fff;
-		&:hover {
-			background-color: #004d80;
-		}
-	}
-
-	&.btn-secondary {
-		background-color: #6c757d;
-		color: #fff;
-		&:hover {
-			background-color: #5a6268;
-		}
+	.popup-message {
+		background-color: #fff;
+		border-radius: 8px;
+		color: #000;
+		font-size: 16px;
+		padding: 20px;
+		pointer-events: auto;
+		text-align: center;
 	}
 }

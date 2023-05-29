@@ -1,0 +1,25 @@
+{
+	"name": "wordpress-random-password-generator",
+	"version": "1.0.0",
+	"description": "A WordPress plugin for generating random passwords",
+	"main": "wordpress-random-password-generator.php",
+	"scripts": {
+		"scss": "node-sass assets/css/main.scss assets/css/main.css",
+		"watch": "npm run scss -- --watch",
+		"phpcs": "phpcs --standard=phpcs.xml",
+		"phpcbf": "phpcbf --standard=phpcs.xml"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ginirator/wordpress-random-password-generator.git"
+	},
+	"author": "Valeriu Dodon",
+	"license": "GPL-2.0",
+	"bugs": {
+		"url": "https://github.com/ginirator/wordpress-random-password-generator/issues"
+	},
+	"homepage": "https://github.com/ginirator/wordpress-random-password-generator#readme",
+	"devDependencies": {
+		"node-sass": "^6.0.1"
+	}
+}
